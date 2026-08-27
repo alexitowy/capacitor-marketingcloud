@@ -166,7 +166,7 @@ Note: this plugin will use the default SFMC SDK channel if you don't set a custo
 * [`isMarketingCloudNotification(...)`](#ismarketingcloudnotification)
 * [`notifyNotificationOpened(...)`](#notifynotificationopened)
 * [`showNotification(...)`](#shownotification)
-* [`addListener('notificationOpened', ...)`](#addlistenernotificationopened)
+* [`addListener('notificationOpened', ...)`](#addlistenernotificationopened-)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -406,7 +406,7 @@ Only available on Android.
 ### addListener('notificationOpened', ...)
 
 ```typescript
-addListener(eventName: 'notificationOpened', listenerFunc: (notification: MarketingCloudNotification) => void) => PluginListenerHandle
+addListener(eventName: 'notificationOpened', listenerFunc: (notification: MarketingCloudNotification) => void) => Promise<PluginListenerHandle>
 ```
 
 Called when a SFMC notification is opened.
@@ -418,7 +418,7 @@ Provides the notification opened.
 | **`eventName`**    | <code>'notificationOpened'</code>                                                                            |
 | **`listenerFunc`** | <code>(notification: <a href="#marketingcloudnotification">MarketingCloudNotification</a>) =&gt; void</code> |
 
-**Returns:** <code><a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt;</code>
 
 **Since:** 1.0.0
 

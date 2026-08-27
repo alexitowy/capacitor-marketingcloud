@@ -1,6 +1,6 @@
 {
   "name": "@okode/capacitor-marketingcloud",
-  "version": "2.0.6",
+  "version": "3.0.0",
   "description": "MarketingCloud Capacitor Plugin",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/okode/capacitor-marketingcloud.git"
+    "url": "git+https://github.com/alexitowy/capacitor-marketingcloud.git"
   },
   "bugs": {
-    "url": "https://github.com/okode/capacitor-marketingcloud/issues"
+    "url": "https://github.com/alexitowy/capacitor-marketingcloud/issues"
   },
   "keywords": [
     "capacitor",
@@ -35,33 +35,35 @@
     "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
     "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --fix --format",
     "eslint": "eslint . --ext ts",
-    "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
+    "prettier": "prettier \"**/*.{css,html,ts,js,java}\" --plugin=prettier-plugin-java",
     "swiftlint": "node-swiftlint",
     "docgen": "docgen --api MarketingCloudPlugin --output-readme README.md --output-json dist/docs.json",
-    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
+    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run build",
     "release": "npm version patch -m \"Bumped version %s [ci skip]\" && git push && git push --tags && npm publish --access public"
   },
   "devDependencies": {
-    "@capacitor/android": "^5.0.0",
-    "@capacitor/ios": "^5.0.0",
-    "@capacitor/core": "^5.0.0",
-    "@capacitor/docgen": "^0.2.0",
-    "@ionic/eslint-config": "^0.3.0",
-    "@ionic/prettier-config": "^2.0.0",
-    "@ionic/swiftlint-config": "^1.1.2",
-    "eslint": "^7.32.0",
-    "prettier": "~2.6.2",
-    "prettier-plugin-java": "~1.6.1",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.71.1",
-    "swiftlint": "^1.0.1",
-    "typescript": "~4.6.4"
+    "@capacitor/android": "8.5.0",
+    "@capacitor/ios": "8.5.0",
+    "@capacitor/core": "8.5.0",
+    "@capacitor/docgen": "0.3.0",
+    "@ionic/eslint-config": "^0.4.0",
+    "@ionic/prettier-config": "^4.0.0",
+    "@ionic/swiftlint-config": "^2.0.0",
+    "@types/node": "^24.10.1",
+    "eslint": "^8.57.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-java": "^2.7.7",
+    "rimraf": "^6.1.2",
+    "rollup": "^4.53.3",
+    "swiftlint": "^2.0.0",
+    "typescript": "~5.9.3"
   },
   "peerDependencies": {
-    "@capacitor/core": "^5.0.0"
+    "@capacitor/core": ">=8.0.0"
   },
   "prettier": "@ionic/prettier-config",
   "swiftlint": "@ionic/swiftlint-config",
