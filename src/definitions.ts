@@ -113,6 +113,6 @@ export interface MarketingCloudPlugin {
    */
   addListener(
     eventName: 'notificationOpened',
-    listenerFunc: (notification: MarketingCloudNotification) => void
-  ): PluginListenerHandle;
+    listenerFunc: (notification: MarketingCloudNotification) => void,
+  ): Promise<PluginListenerHandle>;
 }
